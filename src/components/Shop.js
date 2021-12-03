@@ -3,6 +3,7 @@ import Product from '../components/Product';
 import Category from "./Category";
 import {withRouter} from "react-router-dom";
 import { FilterContext } from "../FilterContext";
+import Search from "./Search";
 
 class  Shop extends Component {
   static contextType = FilterContext;
@@ -24,8 +25,9 @@ class  Shop extends Component {
     let _isMounted = false;
     this.sortProduct = this.sortProduct.bind(this);
     this.filterProductPrice = this.filterProductPrice.bind(this);
-    this.keyword = "";
-    //let keyword = this.props.keyword;
+    // this.keyword = "";
+    this.keyword = this.props.keyword;
+    this.setKeyword = this.props.setKeyword;
   
     //console.log(this.context);
     
@@ -45,11 +47,11 @@ class  Shop extends Component {
         if (this._isMounted){
           
           let keyword = this.keyword.toLowerCase();
-          //alert(keyword);
+          // alert(keyword);
           
           data = data.filter((product) => product.title.toLowerCase().includes(keyword));
           
-          //console.log(data);
+          console.log(data);
           this.products = data
           let startIndex = this.productPerPage*(1 -1);
           let endIndex = startIndex + this.productPerPage; 
@@ -72,9 +74,9 @@ class  Shop extends Component {
   }
   shouldComponentUpdate(nextProps){
     
-    if (this.keyword !== nextProps.keyword){
+    if (this.keyword != nextProps.keyword){
       this.keyword = nextProps.keyword;
-      this.loadAPIData(nextProps.match.params.category);
+      this.loadAPI(nextProps.match.params.category);
     }
     if (this.props.match.params.category != nextProps.match.params.category){
       this.loadAPI(nextProps.match.params.category);
@@ -191,6 +193,7 @@ changeNextPage = (event) => {
         <div className="container">
         <div className="rsidebar span_1_of_left">
               <section className="sky-form">
+                <Search keyword={this.keyword} setKeyword={this.setKeyword}/>
                 <Category products={this.state.products}/>
                
               </section>
@@ -202,7 +205,7 @@ changeNextPage = (event) => {
               <div className="top row">
                
                 <div className="container filter-bar">
-                  <div className="col-sm-3 col-xs-10">
+                  <div className="">
                   <ul className="pagination">
                     {this.createListPage(this.numberPages)}
                     {/* <li><a href="#" onClick={this.showPageProduct.bind(this,1)}>1</a></li>
@@ -212,12 +215,12 @@ changeNextPage = (event) => {
                   </ul>
                   </div>
                
-                  <div className="col-sm-2 col-xs-10">
+                  <div className="">
                     {this.state.filteredProduct.length} products found/page
                   </div>
                   
-                  <div className="col-sm-4 col-xs-6 ">
-                    <select className ="filter-sort"
+                  <div className="">
+                    <select className ="filter-sort1"
                       onChange={this.filterProductPrice}
                       name="sort"
                       value={this.state.price}
@@ -231,8 +234,8 @@ changeNextPage = (event) => {
                       
                     </select>
                   </div>
-                  <div className="col-sm-4 col-xs-6 filter-sort">
-                    <select className ="filter-sort"
+                  <div className=" filter-sort2">
+                    <select className ="filter-sort2"
                       onChange={this.sortProduct}
                       name="sort"
                       value={this.state.sort}

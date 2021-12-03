@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 export default function Signin() {
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
+  // const [count, setCount] = useState(0);
 
   function inputInfo (event) {
    
@@ -21,6 +22,11 @@ export default function Signin() {
     
     
   };
+
+//   function click(){
+// let btn = document.getElementById("btn");
+// btn.innerHTML = parseInt(btn.innerHTML) + 1;
+//   }
 
     return (
         <div className="sign-in-form" >
@@ -49,6 +55,7 @@ export default function Signin() {
     </div>
     
   </form>
+  {/* <button id="btn" onClick={() => setCount(count+1)} >{count}</button> */}
 </div>
 
     )

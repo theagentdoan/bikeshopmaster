@@ -121,7 +121,7 @@ const handleRemove = (cartItem) => {
       <h3>OPTIONS</h3>
       <h4>COUPONS</h4>
       <a className="cpns" href="/">Apply Coupons</a>
-      <p><Link to="/signin">Log In</Link> to use accounts - linked coupons</p>
+      <p><Link to="/login">LogIn</Link> to use accounts - linked coupons</p>
     </div>
   </div>
     }

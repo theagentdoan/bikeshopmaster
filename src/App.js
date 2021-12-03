@@ -5,7 +5,8 @@ import Homepage from './components/Homepage';
 import Shop from './components/Shop';
 import Detail from './components/Detail';
 import Cart from './components/Cart';
-import Signin from './components/Signin';
+// import Signin from './components/Signin';
+import Login from './components/Login.js';
 
 import Nomatch from './components/Nomatch';
 import { FilterContext } from './FilterContext';
@@ -16,6 +17,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Form from './components/Signup/Form';
 
 
 
@@ -23,18 +25,18 @@ function App() {
   const [keyword, setKeyword] = useState('')
   console.log(keyword)
   return (
-    <FilterContext.Provider value={keyword}>
+    // <FilterContext.Provider value={keyword}>
     <Router>
-    <Header setKeyword={setKeyword}/>
+    <Header />
     <Switch>
     <Route exact path="/">
-    <Homepage/>
+    <Homepage keyword={keyword}/>
     </Route>
     {/* <Route exact path="/shop">
     <ShopMain/>
     </Route> */}
     <Route exact path={["/shop/:category","/shop"]}>
-    <Shop keyword={keyword}/>
+    <Shop keyword={keyword} setKeyword={setKeyword}/>
     </Route>
     <Route path="/detail/:id">
     <Detail/>
@@ -42,17 +44,19 @@ function App() {
     <Route path="/cart">
     <Cart/>
     </Route>
-    <Route path="/signin">
-    <Signin/>
+    <Route path="/login">
+    <Login/>
     </Route>
-    
+    <Route path="/form">
+    <Form/>
+    </Route>
     <Route path="*">
     <Nomatch/>
     </Route>
     </Switch>
     <Footer/>
     </Router>
-    </FilterContext.Provider>
+    // </FilterContext.Provider>
   );
 }
 

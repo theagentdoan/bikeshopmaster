@@ -713,12 +713,12 @@ margin-bottom: 2em;
   outline: none;
   border: 2px solid #D2CF99;
 }
-.checkbox{
+/* .checkbox{
 	margin-top:0;
 	display: flex;
     flex-direction: row;
     align-items: center;
-}
+} */
 /*--bike-parts--*/
 .bike-parts-sec{
 	margin-top:3em;
@@ -1662,6 +1662,9 @@ p.desc {
   overflow: hidden;
   height: 131px;
 }
+select.filter-sort1, .filter-sort2 {
+    width: 165px;
+}
 }
 @media (max-width:640px){
 .logo a img{
@@ -2293,6 +2296,7 @@ a.order{
 		/* align-content: stretch; */
 		flex-direction: row;
 		width: 100%;
+		justify-content: space-between;
 	  }
 .col-sm-offset-2 {
     margin-left: 44.5%;
@@ -2421,10 +2425,11 @@ overflow-x: hidden;
 	display: none;
 }
 .search-bar{
-	width: 150px;
+	width: 100%;
     margin-right: 0;
-    margin-left: 146px;
-    border-radius: 3px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 20%);
+    padding: 10px;
+	margin-bottom: 20px;
 }
 .buy{
 	margin-right: 1px;
@@ -2501,8 +2506,13 @@ overflow-x: hidden;
   .form-container .btn:hover, .open-button:hover {
 	opacity: 1;
   }
-  .filter-sort{
+  .filter-sort1{
 	width:193px;
   }
-
+  .filter-sort2{
+	width:165px;
+  }
+div.scroll{
+	cursor: pointer;
+}
   

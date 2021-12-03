@@ -40,7 +40,7 @@ export default function Header() {
       <div className="clearfix" />
     </div>
   </div>	 
-  <div className="caption">
+  {/* <div className="caption">
     <div className="slider">
       <div className="callbacks_container">
         <ul className="rslides" id="slider">
@@ -53,7 +53,7 @@ export default function Header() {
         <NavLink className="morebtn" to="/shop">SHOP</NavLink>
       </div>
     </div>
-  </div>
+  </div> */}
   <div className="dwn">
     <NavLink className="scroll" to="/"><img src="images/scroll.png" alt="" /></NavLink>
   </div>				 

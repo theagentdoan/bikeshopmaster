@@ -1,35 +1,40 @@
 import React, { Component } from 'react';
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { FilterContext } from '../FilterContext';
 
 
 export default class Header extends Component {
 static contextType = FilterContext;
 
-constructor(props){
-    super(props);
-    this.state = {keyword: ''};
-}
-handleChange = (event) => 
-  {
-    this.setState({[event.target.name]: event.target.value});
-  }
+// constructor(props){
+//     super(props);
+//     this.state = {keyword: ''};
+// }
+// handleChange = (event) => 
+//   {
+//     this.setState({[event.target.name]: event.target.value});
+//   }
 
-  handleSubmit = (event) =>
-  {
-    // alert(this.state.keyword);
-    this.props.setKeyword(this.state.keyword);
-    window.keyword = this.state.keyword;
-    event.preventDefault();
-    //this.state.keyword='';
-  }
+//   handleSubmit = (event) =>
+//   {
+//     // alert(this.state.keyword);
+//     event.preventDefault();
+   
+//     window.keyword = this.state.keyword;
+//     this.props.setKeyword(this.state.keyword);
+//     //this.state.keyword='';
+//   }
+
+handleMoveDown = () => {
+  window.scrollTo(0, 600);
+}
     render() {
         return (
             <div className="banner-bg banner-bg1">	
   <div className="container">
     <div className="header">
       <div className="logo">
-        <NavLink to="/"><img src="images/logo.png" alt="" /></NavLink>
+        <Link to="/"><img src="images/logo.png" alt="" /></Link>
       </div>							 
       <div className="top-nav">		
 
@@ -38,24 +43,20 @@ handleChange = (event) =>
         </label>
         <input id="mobile_menu" type="checkbox" />
         <ul className="nav">
-          <li className="dropdown1"><NavLink exact activeClassName="active" to="/">HOME</NavLink>
+          <li className="dropdown1"><Link exact activeClassName="active" to="/" onClick={this.handleMoveDown}>HOME</Link>
             
           </li>
-          <li className="dropdown1"><Link to="/shop">SHOP</Link>
+          <li className="dropdown1"><Link to="/shop" onClick={this.handleMoveDown}>SHOP</Link>
             
           </li>      
             
-          <li className="dropdown1"><NavLink to="/signin">LOG IN</NavLink>
+          <li className="dropdown1"><Link to="/login" onClick={this.handleMoveDown}>LOGIN</Link>
            
           </li>             
           
-          <NavLink className="shop" to="/cart"><img src="images/cart.png" alt=""/><span id="cart-count" className="badge badge-light">0 </span></NavLink>
+          <Link className="shop" to="/cart" onClick={this.handleMoveDown}><img src="images/cart.png" alt=""/><span id="cart-count" className="badge badge-light">0 </span></Link>
           <br></br>
-          <li ><label >
-          {/* <form onSubmit={this.handleSubmit}>
-              <input className="search-bar" type="search" value={this.state.keyword} onChange={this.handleChange} name="keyword" placeholder="Search" />
-              </form> */}
-            </label></li>
+          
         </ul>
       </div>
       <div className="clearfix" />
@@ -71,12 +72,12 @@ handleChange = (event) =>
           <li><h1>WOMEN'S CLOTHING</h1></li>
         </ul>
         <p>You <span>create</span> the <span>experience,</span> we <span>supply</span> excellent <span>services</span></p>
-        <NavLink className="morebtn" to="/shop">SHOP</NavLink>
+        <Link className="morebtn" to="/shop">SHOP</Link>
       </div>
     </div>
   </div>
   <div className="dwn">
-    <NavLink className="scroll" to="/"><img src="images/scroll.png" alt="" /></NavLink>
+    <div className="scroll" onClick={this.handleMoveDown}><img src="images/scroll.png" alt="" /></div>
   </div>				 
 </div>
         )

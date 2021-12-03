@@ -12,7 +12,7 @@ export default function Footer() {
 	  }
     return (
         <div className="footer">
-	 <div className="container wrap">
+	 <div className="container">
 		<div className="logo2">
 			 <Link to="/"><img src="images/logo2.png" alt=""/></Link>
 		</div>
@@ -20,9 +20,9 @@ export default function Footer() {
 			 <ul>
 				 <li><Link to="/">HOME</Link></li>
 				 <li><Link to="/shop">SHOP</Link></li>
-				 <li><Link to="/signin">LOG IN</Link></li>
+				 <li><Link to="/login">LOGIN</Link></li>
 				 <li><Link to="*">EXTRA</Link></li>
-				 <li><div class="chat-popup" id="myForm">
+				 {/* <li><div class="chat-popup" id="myForm">
 						<form action="/action_page.php" class="form-container">
 							<h1>Chat</h1>
 
@@ -32,7 +32,7 @@ export default function Footer() {
 							<button type="submit" class="btn">Send</button>
 							<button type="button" class="btn cancel" onClick={closeForm}>Close</button>
 						</form>
-						</div></li>
+						</div></li> */}
 			 </ul>
 		</div>
 		<div className="clearfix"></div>
