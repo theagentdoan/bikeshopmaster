@@ -26,7 +26,7 @@ function App() {
   console.log(keyword)
   return (
     // <FilterContext.Provider value={keyword}>
-    <Router>
+    <Router basename='/index.html'>
     <Header />
     <Switch>
     <Route exact path="/">

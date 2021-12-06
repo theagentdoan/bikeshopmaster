@@ -7,8 +7,8 @@ export default function Cart() {
   //const [cart, setCartItems] = useState(JSON.parse(localStorage.getItem('cart')));
 
   const itemsPrice = cart.reduce((a,c) => a + c.price*c.qty, 0);
-  const discount = itemsPrice > 500 ? 0.1*itemsPrice : 0;
-  const shipping = itemsPrice > 500 ? 0 : 20;
+  const discount = itemsPrice > 300 ? 0.1*itemsPrice : 0;
+  const shipping = itemsPrice > 300 ? 0 : 20;
   const totalPrice = itemsPrice - discount + shipping;
   
 
